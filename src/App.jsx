@@ -1,12 +1,17 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import SearchBar from './components/SearchBar.jsx'
+import TagBar from './components/TagBar.jsx'
+import Contents from './components/Contents.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [filter, setFilter] = useState('home')
 
   return (
     <>
-      <div className=' text-red-800 '>hello there</div>
+      <h1 className=' text-center text-orange-600 font-bold '>SEENIT</h1>
+      <SearchBar />
+      <TagBar />
+      <Contents />
     </>
   )
 }
