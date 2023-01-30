@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1 className=' text-center text-orange-600 font-bold '>SEENIT</h1>
+      <h1 className=' font-logo text-center text-orange-600 font-bold '>Seenit</h1>
       <SearchBar />
       <TagBar />
       <Contents />

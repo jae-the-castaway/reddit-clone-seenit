@@ -7,6 +7,10 @@ module.exports = {
   theme: {
     extend: {
     },
+    fontFamily: {
+      sans : ['Noto Sans', 'sans-serif'],
+      logo : ['Balsamiq Sans', 'cursive'],
+    }
   },
   plugins: [],
 }
