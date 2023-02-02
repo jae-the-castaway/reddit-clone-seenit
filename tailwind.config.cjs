@@ -7,7 +7,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'card' : 'linear-gradient(180deg, rgba(43,43,43,1) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 54%, rgba(43,43,43,1) 100%)',
+        'card-top' : 'linear-gradient(180deg, rgba(43,43,43,0.4) 0%, rgba(0,0,0,0) 13%)',
+        'card-bottom' : 'linear-gradient(180deg, rgba(43,43,43,0.4) 0%, rgba(0,0,0,0) 13%, rgba(0,0,0,0) 54%, rgba(43,43,43,0.5) 100%)',
         }
       },
       fontFamily: {
@@ -15,5 +16,5 @@ module.exports = {
         logo : ['Balsamiq Sans', 'cursive'],
       }
     },
-  plugins: [],
+  plugins: [require('prettier-plugin-tailwindcss')],
 }
