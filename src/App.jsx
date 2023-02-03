@@ -5,14 +5,14 @@ import Contents from './components/Contents.jsx'
 import axios from 'axios';
 
 function App() {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
 
   // if post_hint equals to 'link' don't 
   useEffect(() => {
-    axios.get('https://www.reddit.com/r/home.json')
-      .then(response => setData(response.data.data.children))
-    console.log(data)
+    axios.get('https://www.reddit.com/r/popular.json')
+      .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true )))
+    
   }, []);
 
   return (
