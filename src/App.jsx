@@ -6,23 +6,38 @@ import axios from 'axios';
 
 function App() {
   const [data, setData] = useState([]);
+  const [tag, setTag ] = useState(null);
 
-
-  // if post_hint equals to 'link' don't 
-  useEffect(() => {
-    axios.get('https://www.reddit.com/r/popular.json')
-      .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true )))
+  function handleChange(keyword) {
+    setTag(keyword)
+  }
+  
+  function getContents() {
     
-  }, []);
+
+    axios.get(`https://www.reddit.com/r/${tag ? tag : 'art' }.json`)
+    .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true ))).catch(err => {
+      console.log(err); return err
+    })
+  }
+
+  // if post_hint equals to 'l  ink' don't 
+  useEffect(() => {
+console.log(data)
+    if (data) {
+      getContents()
+    }
+
+  },[tag] );
 
   return (
     <>
       <h1 className=' font-logo text-center text-orange-600 font-bold '>Seenit</h1>
-      <SearchBar />
-      <TagBar />
+      <SearchBar handleChange={handleChange} />
+      <TagBar handleChange={handleChange} />
       <Contents data={data} />
     </>
-  )
+  ) 
 }
 
 export default App
