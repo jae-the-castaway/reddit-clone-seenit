@@ -18,15 +18,13 @@ function App() {
     setLoading(true)
     axios.get(`https://www.reddit.com/r/${tag ? tag : 'popular' }.json`)
     .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true ))).catch(err => {
-      // console.log(err);  
+      console.log(err);  
     })
     setLoading(false)
   }
 
-  // if post_hint equals to 'l  ink' don't 
   useEffect(() => {
       getContents()
-
   },[tag] );
 
   return (

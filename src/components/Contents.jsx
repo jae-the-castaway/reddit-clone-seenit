@@ -18,7 +18,7 @@ function Contents({data, isLoading}) {
 
     
     return(
-        <ul className=" flex  flex-col mx-[5vw]  bg-gray-300 border-gray-300 border ">
+        <ul className=" flex  flex-col mx-[5vw] sm:justify-between bg-gray-300 border-gray-300 border ">
             {isLoading ?
                         <div className="m-2 w-full" role="status">
                         <svg aria-hidden="true" className="w-16 h-16 my-2 mx-auto text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,28 +34,28 @@ function Contents({data, isLoading}) {
             :
                 <>
                 {
-                data.map((item, i) => (
-                    <li key={item.data.id} className="  group hover:cursor-pointer my-1 relative min-w-[300px]  max-w-[700px]">
+                data.map((item) => (
+                    <li key={item.data.id} className="  group hover:cursor-pointer my-1 relative h-fit  max-w-[400px] ">
     
                         <div className="rounded-2xl bg-card-top group-hover:bg-card-bottom w-full h-full absolute z-30  "></div>
-                        <div className=" absolute grid grid-cols-3 grid-rows-[1fr_8fr_10px_1fr] w-full h-full">
-                            <div className="z-40 justify-self-start p-2 mt-2 grid-1">
+                        <div className=" absolute grid grid-cols-3 grid-rows-[1fr_6fr_2fr_10px_1fr] w-full h-full">
+                            <div className="z-40 justify-self-start p-2 mt-2 ">
                                 <p className=" hover:bg-gray-700 p-2 ml-4 text-gray-100 ">
                                    <a href={'https://www.reddit.com/r/'+item.data.subreddit}> r/{item.data.subreddit}</a>
                                 </p>
                           </div>
                           < HiDotsHorizontal className="z-40 invisible group-hover:visible hover:bg-gray-700  text-gray-100 mx-4 self-center justify-self-end col-start-3 "/>
-                          <h2 className="z-40 hover:bg-gray-700 p-2 self-end justify-self-start col-span-3 invisible group-hover:visible text-gray-100 text-xl mx-4 "><a href={'https://www.reddit.com'+item.data.permalink}>{item.data.title}</a></h2>
-                          <hr className=" invisible group-hover:visible col-span-3 my-1 border-gray-300 mx-8 "></hr>
-                          <div className= "z-40 invisible group-hover:visible items-center grid-10 flex justify-evenly text-gray-100"><HiArrowUp className="  hover:bg-gray-700 "/><p className="  hover:bg-gray-700 p-2 "><a href={'https://www.reddit.com'+item.data.permalink}>{item.data.ups}</a></p><HiArrowDown className=" hover:bg-gray-700"/></div>
-                          <div className="z-40 hover:bg-gray-700 invisible group-hover:visible self-center grid-11 justify-self-center flex text-gray-100 p-2 "><a href={'https://www.reddit.com'+item.data.permalink}><HiOutlineChatAlt className=" inline mr-2 "/><p className=" inline mr-2">{item.data.num_comments}</p></a></div>
-                          <div className="z-40 hover:bg-gray-700 invisible group-hover:visible justify-self-center self-center grid-12 flex text-gray-100 p-2 "><HiOutlineUpload className=" mr-2"/><p className="">Share</p></div>
+                          <h2 className="z-40 overflow-hidden min-h-0 hover:bg-gray-700 p-2 self-end justify-self-start row-start-3 col-span-3 invisible group-hover:visible text-gray-100 text-xl mx-4 "><a href={'https://www.reddit.com'+item.data.permalink}>{item.data.title}</a></h2>
+                          <hr className=" invisible group-hover:visible row-start-4 col-span-3 my-1 border-gray-300 mx-8 "></hr>
+                          <div className= "row-start-5 z-40 invisible group-hover:visible items-center flex justify-evenly text-gray-100"><HiArrowUp className="  hover:bg-gray-700 "/><p className="  hover:bg-gray-700 p-2 "><a href={'https://www.reddit.com'+item.data.permalink}>{item.data.ups}</a></p><HiArrowDown className=" hover:bg-gray-700"/></div>
+                          <div className="row-start-5 z-40 hover:bg-gray-700 invisible group-hover:visible self-center justify-self-center flex text-gray-100 p-2 "><a href={'https://www.reddit.com'+item.data.permalink}><HiOutlineChatAlt className=" inline mr-2 "/><p className=" inline mr-2">{item.data.num_comments}</p></a></div>
+                          <div className="z-40 row-start-5 hover:bg-gray-700 invisible group-hover:visible justify-self-center self-center flex text-gray-100 p-2 "><HiOutlineUpload className=" mr-2"/><p className="">Share</p></div>
                         </div>
                         {item.data.is_video === true  //if content is video, render video, if not t
                             ? 
                             <Video data={item}/>
-                            : <><img  src={item.data.url} className="h-auto rounded-2xl     bg-origin-border bg-center bg-contain bg-no-repeat  " />
-                            <a className=" absolute top-0 w-full h-full z-30" href={item.data.url}></a></>
+                            : <div className="flex items-center w-full h-full" ><img  src={item.data.url} className="  w-full  rounded-2xl" />
+                            <a className=" absolute top-0 w-full h-full z-30" href={item.data.url}></a></div>
                         }
                     </li>
                     ))
