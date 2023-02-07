@@ -7,6 +7,7 @@ import axios from 'axios';
 function App() {
   const [data, setData] = useState([]);
   const [tag, setTag ] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   function handleChange(keyword) {
     setTag(keyword)
@@ -14,19 +15,17 @@ function App() {
   
   function getContents() {
     
-
-    axios.get(`https://www.reddit.com/r/${tag ? tag : 'art' }.json`)
+    setLoading(true)
+    axios.get(`https://www.reddit.com/r/${tag ? tag : 'popular' }.json`)
     .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true ))).catch(err => {
-      console.log(err); return err
+      // console.log(err);  
     })
+    setLoading(false)
   }
 
   // if post_hint equals to 'l  ink' don't 
   useEffect(() => {
-console.log(data)
-    if (data) {
       getContents()
-    }
 
   },[tag] );
 
@@ -35,7 +34,7 @@ console.log(data)
       <h1 className=' font-logo text-center text-orange-600 font-bold '>Seenit</h1>
       <SearchBar handleChange={handleChange} />
       <TagBar handleChange={handleChange} />
-      <Contents data={data} />
+      <Contents data={data} isLoading={loading} />
     </>
   ) 
 }
