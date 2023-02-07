@@ -7,7 +7,11 @@ function TagBar( {handleChange} ) {
             <button onClick={()=> handleChange('funnyvideos')} className=" btn ">Funny Videos</button>
             <button onClick={()=> handleChange('pics')} className=" btn ">Pics</button>
             <button onClick={()=> handleChange('art')} className=" btn ">Art</button>
-            <button onClick={()=> handleChange('digitalart')} className=" btn ">Digital Art</button>
+            <button onClick={()=> handleChange('videos')} className=" btn ">Videos</button>
+            <button onClick={()=> handleChange('aww')} className=" btn ">Aww</button>
+            <button onClick={()=> handleChange('gifs')} className=" btn ">Gifs</button>
+            <button onClick={()=> handleChange('earthPorn')} className=" btn ">EarthPorn</button>
+            <button onClick={()=> handleChange('oldschoolcool')} className=" btn ">OldSchoolCool</button>
             <button className=" btn ">+</button>
         
 

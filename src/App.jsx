@@ -15,16 +15,17 @@ function App() {
   
   function getContents() {
     
-    setLoading(true)
     axios.get(`https://www.reddit.com/r/${tag ? tag : 'popular' }.json`)
     .then(response => setData(Array.from(response.data.data.children).filter(item => item.data.is_reddit_media_domain === true ))).catch(err => {
       console.log(err);  
     })
-    setLoading(false)
+    console.log(loading)
   }
-
+  
   useEffect(() => {
-      getContents()
+    setLoading(true)
+    getContents()
+    setLoading(false)
   },[tag] );
 
   return (
