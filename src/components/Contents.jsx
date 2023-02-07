@@ -62,13 +62,8 @@ function Contents({data, isLoading}) {
                 </>
             }
             </>
-
-            
-            
-
             }
         </ul>
     )
 }
-// z
 export default Contents
