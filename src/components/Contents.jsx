@@ -18,7 +18,7 @@ function Contents({data, isLoading}) {
 
     
     return(
-        <ul className=" flex  flex-col mx-[5vw] sm:justify-between bg-gray-300 border-gray-300 border ">
+        <ul className=" flex  flex-col mx-[5vw] bg-gray-300 border-gray-300 border ">
             {isLoading ?
                         <div className="m-2 w-full" role="status">
                         <svg aria-hidden="true" className="w-16 h-16 my-2 mx-auto text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@ function Contents({data, isLoading}) {
                 <>
                 {
                 data.map((item) => (
-                    <li key={item.data.id} className="  group hover:cursor-pointer my-1 relative h-fit  max-w-[400px] ">
+                    <li key={item.data.id} className="  group hover:cursor-pointer my-1 relative h-fit  max-w-[640px] ">
     
                         <div className="rounded-2xl bg-card-top group-hover:bg-card-bottom w-full h-full absolute z-30  "></div>
                         <div className=" absolute grid grid-cols-3 grid-rows-[1fr_6fr_2fr_10px_1fr] w-full h-full">
