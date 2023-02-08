@@ -16,7 +16,7 @@ function TagBar({ handleChange }) {
       <button onClick={() => handleChange("art")} className=" btn ">
         Art
       </button>
-      <button onClick={() => handleChange("videos")} className=" btn ">
+      <button onClick={() => handleChange("vid")} className=" btn ">
         Videos
       </button>
       <button onClick={() => handleChange("aww")} className=" btn ">
