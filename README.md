@@ -1,5 +1,7 @@
 # Seenit - Simple Reddit clone app only with images and videos
 
+![thumbnail](public/screenshot.png)
+
 This is Seenit, simple reddit clone app only fetching images and videos from any subreddit. It's built with React and Tailwind.
 
 ## Table of contents
@@ -27,8 +29,8 @@ Users should be able to:
 
 ### Screenshot
 
-![thumbnail-1](public/thumbnail-1.png)
-![thumbnail-2](public/thumbnail-2.png)
+![thumbnail-1](public/thumbnail-1.gif)
+![thumbnail-2](public/thumbnail-2.gif)
 
 ### Links
 
