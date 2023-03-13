@@ -7,7 +7,7 @@ import axios from "axios";
 function App() {
   const [data, setData] = useState([]);
   const [tag, setTag] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   function handleChange(keyword) {
     setTag(keyword);
