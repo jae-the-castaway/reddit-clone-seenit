@@ -1,5 +1,7 @@
 # Seenit - Simple Reddit clone app only with images and videos
 
+![thumbnail](public/screenshot.png)
+
 This is Seenit, simple reddit clone app only fetching images and videos from any subreddit. It's built with React and Tailwind.
 
 ## Table of contents
@@ -11,6 +13,7 @@ This is Seenit, simple reddit clone app only fetching images and videos from any
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+- [Future Developments](#future-developments)
 
 ## Overview
 
@@ -27,8 +30,8 @@ Users should be able to:
 
 ### Screenshot
 
-![thumbnail-1](public/thumbnail-1.png)
-![thumbnail-2](public/thumbnail-2.png)
+![thumbnail-1](public/thumbnail-1.gif)
+![thumbnail-2](public/thumbnail-2.gif)
 
 ### Links
 
@@ -73,3 +76,13 @@ function Video({ data }) {
 ```
 
 To respectively manage the play/pause button of each video content, I utilized the `useRef` hook. This hook doesn't trigger re-rendering and store information to each component (the videos in this instance), enabling users to control the videos without reloading the entire page.
+
+## Future Developments
+
+I noticed that the compatibility with mobile environments is not optimal. In the future, hover effects on images and videos should be replaced on mobile devices.
+  
+On mobile, users should be able to:
+
+- Click on a piece of content to play or pause a video
+- Have access to the title, votes, comments, and share buttons at all times, without hover effects
+- Scroll through content and have it automatically align with the viewport using a React Hook with Intersection Observer (refer to [this article](https://blog.logrocket.com/build-custom-tiktok-autoplay-react-hook-intersection-observer/)
