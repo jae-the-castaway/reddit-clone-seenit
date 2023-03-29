@@ -102,7 +102,7 @@ function Contents({ data, isLoading }) {
                       <p className="">Share</p>
                     </div>
                   </div>
-                  {item.data.is_video === true ? ( //if content is video, render video, if not t
+                  {item.data.is_video === true ? ( //if content is video, render video
                     <Video data={item} />
                   ) : (
                     <div className="flex h-full w-full items-center">
@@ -110,10 +110,10 @@ function Contents({ data, isLoading }) {
                         src={item.data.url}
                         className="  w-full  rounded-2xl"
                       />
-                      <a
+                      {/* <a
                         className=" absolute top-0 z-30 h-full w-full"
                         href={item.data.url}
-                      ></a>
+                      ></a> */}
                     </div>
                   )}
                 </li>

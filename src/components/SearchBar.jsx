@@ -13,7 +13,7 @@ function SearchBar({ handleChange }) {
           type="text"
         />
         <div className=" ">
-          <FaSearch size="1.5rem" color="" className=" flex-grow-0" />
+          <FaSearch size="30px" color="" className=" flex-grow-0" />
         </div>
       </div>
     </>
