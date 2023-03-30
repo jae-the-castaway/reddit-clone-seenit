@@ -59,28 +59,46 @@ function Video({ data }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  const handleClick = () => {
-    console.log(isPlaying);
+// Creating corresponding audio files
+  const getAudioFileLinks = () => {
+    const serialNumber = data.data.media.reddit_video.fallback_url.match(
+      /v\.redd\.it\/(.*)\/DASH_/
+    )[1];
+    const editedLink = `https://v.redd.it/${serialNumber}/DASH_audio.mp4`;
+    return editedLink;
+  };
 
+  const handleClick = () => {
     if (isPlaying) {
+      pause();
       videoRef.current.pause();
     } else {
+      play();
       videoRef.current.play();
     }
     setIsPlaying(!isPlaying);
   };
+
+  const soundUrl = getAudioFileLinks();
+  const [play, { pause }] = useSound(soundUrl, {
+    volume: 0.5,
+    loop: true,
+    interrupt: true,
+  });
   return (
 // return video content
   )
   }
 ```
 
-To respectively manage the play/pause button of each video content, I utilized the `useRef` hook. This hook doesn't trigger re-rendering and store information to each component (the videos in this instance), enabling users to control the videos without reloading the entire page.
+To control the play/pause buttons of each video content respectively, I used the useRef hook in the Video component. By using useRef, the component stores information without triggering a re-render, which allows users to control the videos without having to reload the entire page. The videoRef variable stores a reference to the video element, enabling it to be controlled with videoRef.current.pause() and videoRef.current.play() methods.
+
+Since videos from the [Reddit JSON API](https://github.com/reddit-archive/reddit/wiki/JSON#data-structures) do not contain audio files, I created a function called getAudioFileLinks to extract the corresponding audio link from the video link. I found this solution thanks to a [Reddit post](https://www.reddit.com/r/redditdev/comments/ihgmv5/getting_audio_from_reddit_video/). To control the sound files, I used the use-sound dependency with pause() and play() methods.
 
 ## Future Developments
 
 I noticed that the compatibility with mobile environments is not optimal. In the future, hover effects on images and videos should be replaced on mobile devices.
-  
+
 On mobile, users should be able to:
 
 - Click on a piece of content to play or pause a video
